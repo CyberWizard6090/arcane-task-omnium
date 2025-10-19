@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "types": ["vite/client"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["renderer/*"],
+      "@app/*": ["renderer/app/*"],
+      "@entities/*": ["renderer/entities/*"],
+      "@features/*": ["renderer/features/*"],
+      "@widgets/*": ["renderer/widgets/*"],
+      "@pages/*": ["renderer/pages/*"],
+      "@shared/*": ["renderer/shared/*"]
+    }
+  },
+  "include": ["renderer/**/*.ts", "renderer/**/*.d.ts", "renderer/**/*.vue"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,123 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--border-secondary);
+  background: var(--background-block);
+  color: var(--font-color-primary);
+  padding: 0 var(--spacing-m);
+  height: 44px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.12s ease,
+    background-color 0.12s ease,
+    border-color 0.12s ease;
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  &__text {
+    line-height: 1;
+    display: inline-block;
+  }
+  &__loader {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  &__spinner {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-top-color: var(--accent-color);
+    animation: button-spin 0.9s linear infinite;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(127, 13, 233, 0.12);
+    border-color: var(--accent-color);
+  }
+
+  &--block {
+    width: 100%;
+  }
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    pointer-events: none;
+    transform: none;
+  }
+
+  &--sm {
+    height: 36px;
+    font-size: 13px;
+    padding: 0 var(--spacing-s);
+    border-radius: var(--radius-sm);
+  }
+  &--md {
+    height: 44px;
+    font-size: 14px;
+    padding: 0 var(--spacing-m);
+    border-radius: var(--radius-md);
+  }
+  &--lg {
+    height: 52px;
+    font-size: 16px;
+    padding: 0 var(--spacing-l);
+    border-radius: var(--radius-lg);
+  }
+
+  &--primary {
+    background: var(--accent-color);
+    color: white;
+    border-color: transparent;
+  }
+  &--alt {
+    background: var(--btn-color-alt);
+    color: var(--btn-text-alt);
+    border-color: var(--border-secondary);
+  }
+  &--ghost {
+    background: transparent;
+    color: var(--font-color-primary);
+    border-color: transparent;
+  }
+  &--danger {
+    background: linear-gradient(180deg, rgba(203, 14, 78, 0.95), rgba(160, 12, 61, 0.95));
+    color: white;
+    border-color: transparent;
+  }
+
+  &.button--icon-only {
+    padding: 0;
+    width: var(--size-svg-icon);
+    height: var(--size-svg-icon);
+    border-radius: var(--radius-circle);
+  }
+  &.button--icon-only .button__text {
+    display: none;
+  }
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
