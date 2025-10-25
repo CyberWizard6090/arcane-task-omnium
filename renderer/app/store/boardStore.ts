@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 interface Task {
   id: string;
-  title: string; 
+  title: string;
 }
 
 interface Column {

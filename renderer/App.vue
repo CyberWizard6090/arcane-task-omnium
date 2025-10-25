@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <h1>ToDo List</h1>
 
     <BoardPage />
@@ -9,11 +9,3 @@
 <script setup>
 import BoardPage from '@/pages/BoardPage.vue';
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 20px;
-}
-</style>

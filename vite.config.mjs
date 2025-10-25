@@ -15,10 +15,10 @@ export default defineConfig({
       '@widgets': path.resolve(__dirname, './renderer/widgets'),
       '@pages': path.resolve(__dirname, './renderer/pages'),
       '@shared': path.resolve(__dirname, './renderer/shared'),
-    }
+    },
   },
   build: {
     outDir: path.resolve(__dirname, 'dist'),
-    emptyOutDir: true
-  }
+    emptyOutDir: true,
+  },
 });

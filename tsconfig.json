@@ -12,17 +12,23 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "types": ["vite/client"],
-    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "@/*": ["renderer/*"],
-      "@app/*": ["renderer/app/*"],
-      "@entities/*": ["renderer/entities/*"],
-      "@features/*": ["renderer/features/*"],
-      "@widgets/*": ["renderer/widgets/*"],
-      "@pages/*": ["renderer/pages/*"],
-      "@shared/*": ["renderer/shared/*"]
+      "@/*": ["./renderer/*"],
+      "@app/*": ["./renderer/app/*"],
+      "@entities/*": ["./renderer/entities/*"],
+      "@features/*": ["./renderer/features/*"],
+      "@widgets/*": ["./renderer/widgets/*"],
+      "@pages/*": ["./renderer/pages/*"],
+      "@shared/*": ["./renderer/shared/*"]
     }
   },
-  "include": ["renderer/**/*.ts", "renderer/**/*.d.ts", "renderer/**/*.vue"],
+  "include": [
+    "renderer/**/*.ts",
+    "renderer/**/*.d.ts",
+    "renderer/**/*.vue",
+    "preload/**/*.ts",
+    "global.d.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }

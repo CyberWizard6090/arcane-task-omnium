@@ -7,6 +7,6 @@
 
 <script setup>
 defineProps({
-  todo: Object
+  todo: Object,
 });
 </script>

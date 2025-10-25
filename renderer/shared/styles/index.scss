@@ -1,9 +1,9 @@
-@use '_tokens';
-@use '_theme-dark';
-@use 'whitespace';
+@use '@shared/styles/_tokens';
+@use '@shared/styles/_theme-dark';
+@use '@shared/styles/whitespace';
 
 :root {
-  --bg: #0f1724;
+  --bg: #060707;
   --panel: #0b1220;
   --accent: #3b82f6;
   --card: #101826;
@@ -20,7 +20,8 @@ html,
     ui-sans-serif,
     system-ui,
     -apple-system;
-  background: linear-gradient(180deg, rgba(9, 10, 15, 1) 0%, rgba(13, 17, 23, 1) 100%);
+  background-color: #06070756;
+  backdrop-filter: blur(8px);
   color: #e6eef8;
 }
 

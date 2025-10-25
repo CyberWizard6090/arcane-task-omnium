@@ -26,6 +26,10 @@ async function createWindow() {
   win = new BrowserWindow({
     width: 1200,
     height: 800,
+    transparent: true,
+    frame: false, // можно убрать, если нужна стандартная рамка
+    // alwaysOnTop: false, // опционально
+    backgroundColor: '#00000000', // полностью прозрачный фон
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -33,9 +37,11 @@ async function createWindow() {
     },
   });
 
+  const port = process.env.VITE_DEV_SERVER_PORT || 5173;
+
   if (isDev) {
-    await win.loadURL('http://localhost:5173');
-    win.webContents.openDevTools();
+    await win.loadURL(`http://localhost:${port}`);
+    // win.webContents.openDevTools();
   } else {
     await win.loadFile(path.join(__dirname, '../dist/index.html'));
   }
