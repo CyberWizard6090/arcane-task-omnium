@@ -1,5 +1,6 @@
 {
-  "name": "task-book",
+  "name": "arcane-task-omnium",
+  "productName": "Arcane Task Omnium",
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
