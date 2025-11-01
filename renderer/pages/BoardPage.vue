@@ -1,14 +1,14 @@
 <template>
-  <div class="page">
-    <header class="header">
+  <div :class="styles.page">
+    <header :class="styles.header">
       <h1>Kanban — Бета</h1>
-      <div class="actions">
+      <div :class="styles.actions">
         <Button variant="primary" @click="addColumn">+ Колонка</Button>
         <Button variant="primary" @click="save">Сохранить</Button>
       </div>
     </header>
 
-    <Board :board="board" @updateBoard="onBoardUpdate" />
+    <Board class="board" :board="board" @updateBoard="onBoardUpdate" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import { defineComponent, reactive, onMounted } from 'vue';
 import Board from '@/widgets/board/Board.vue';
 import { BoardModel, ColumnModel } from '@/entities/task/model/model';
 import { Button } from '@/shared/ui/button';
+import styles from './BoardPage.module.scss';
 export default defineComponent({
   components: { Board, Button },
   setup() {
@@ -65,7 +66,7 @@ export default defineComponent({
 
     onMounted(load);
 
-    return { board, addColumn, onBoardUpdate, save };
+    return { board, addColumn, onBoardUpdate, save, styles };
   },
 });
 </script>

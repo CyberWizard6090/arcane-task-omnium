@@ -28,6 +28,7 @@ async function createWindow() {
     height: 800,
     transparent: true,
     frame: false, // можно убрать, если нужна стандартная рамка
+    resizable: true,
     // alwaysOnTop: false, // опционально
     backgroundColor: '#00000000', // полностью прозрачный фон
     webPreferences: {
@@ -57,6 +58,37 @@ ipcMain.handle('load-data', async () => {
 ipcMain.handle('save-data', async (_e, payload) => {
   await saveData(payload);
   return { ok: true };
+});
+
+ipcMain.on('minimize-window', () => {
+  if (win) win.minimize();
+});
+
+ipcMain.on('maximize-window', () => {
+  if (!win) return;
+  if (win.isMaximized()) win.unmaximize();
+  else win.maximize();
+});
+
+ipcMain.on('close-window', () => {
+  if (win) win.close();
+});
+
+ipcMain.on('window-close', () => {
+  if (win) win.close();
+});
+
+ipcMain.on('resize-window', (_e, { width, height }) => {
+  if (!win) return;
+  const minWidth = 300;
+  const minHeight = 200;
+  win.setSize(Math.max(minWidth, Math.floor(width)), Math.max(minHeight, Math.floor(height)));
+});
+
+ipcMain.handle('get-window-size', () => {
+  if (!win) return { width: 1200, height: 800 };
+  const [width, height] = win.getSize();
+  return { width, height };
 });
 
 app.on('window-all-closed', () => {

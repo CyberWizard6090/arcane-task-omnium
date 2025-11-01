@@ -1,14 +1,15 @@
 export {};
 
 declare global {
-  interface GlobalThis {
-    api: {
-      send: (channel: string, data: any) => void;
+  interface Window {
+    electronAPI: {
+      minimize: () => void;
+      maximize: () => void;
+      close: () => void;
+      resizeWindow: (size: { width: number; height: number }) => void;
+      loadData: () => Promise<any>;
+      saveData: (payload: any) => Promise<any>;
+      getWindowSize: () => Promise<{ width: number; height: number }>;
     };
   }
-}
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue';
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
 }

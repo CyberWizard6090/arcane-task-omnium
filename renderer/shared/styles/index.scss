@@ -1,15 +1,11 @@
 @use '@shared/styles/_tokens';
 @use '@shared/styles/_theme-dark';
 @use '@shared/styles/whitespace';
+@use '@shared/styles/base';
 
-:root {
-  --bg: #060707;
-  --panel: #0b1220;
-  --accent: #3b82f6;
-  --card: #101826;
-  --muted: #9aa4b2;
+* {
+  box-sizing: border-box;
 }
-
 body,
 html,
 #app {
@@ -20,9 +16,25 @@ html,
     ui-sans-serif,
     system-ui,
     -apple-system;
-  background-color: #06070756;
-  backdrop-filter: blur(8px);
-  color: #e6eef8;
+
+  border-radius: 12px; // желаемый радиус
+  overflow: hidden; // чтобы контент не вылезал за края
+  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+#app {
+  &::after {
+    background-color: var(--background-primary);
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    // filter: blur(50px);
+    border-radius: 12px; // тот же радиус, что и у #app
+    z-index: -1;
+  }
 }
 
 .page {
@@ -90,4 +102,57 @@ html,
 }
 button {
   cursor: pointer;
+}
+
+/* Стили полос прокрутки */
+
+/* Для WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-block);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 6px;
+  border: 4px solid var(--background-block);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--dark-red);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--background-block);
+  border-radius: 6px;
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color) var(--background-block);
+}
+
+/* Дополнительные состояния для Firefox */
+@supports (-moz-appearance: none) {
+  * {
+    scrollbar-width: auto;
+  }
+
+  html,
+  body {
+    scrollbar-color: var(--accent-color) var(--background-block);
+    scrollbar-width: thin;
+  }
+}
+
+/* Плавное появление/исчезновение (опционально) */
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  transition: background-color 0.3s ease;
 }
