@@ -16,9 +16,10 @@
 </template>
 
 <script setup lang="ts">
-import { Sidebar } from '@/widgets/sidebar';
-import BoardPage from '@/pages/BoardPage.vue';
-import TitleBar from '@/app/components/TitleBar.vue';
 import ResizableWindow from '@/app/components/ResizableWindow.vue';
+import TitleBar from '@/app/components/TitleBar.vue';
+import BoardPage from '@/pages/BoardPage.vue';
+import { Sidebar } from '@/widgets/sidebar';
+
 import styles from './App.module.scss';
 </script>

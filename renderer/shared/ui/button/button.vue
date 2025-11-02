@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { computed, defineProps, defineEmits, useSlots } from 'vue';
+
 import styles from './button.module.scss';
 
 const props = defineProps({
@@ -34,9 +35,7 @@ const props = defineProps({
   type: { type: String as () => 'button' | 'submit' | 'reset', default: 'button' },
 });
 
-const emit = defineEmits<{
-  (e: 'click', ev: MouseEvent): void;
-}>();
+const emit = defineEmits<(e: 'click', ev: MouseEvent) => void>();
 
 const slots = useSlots();
 

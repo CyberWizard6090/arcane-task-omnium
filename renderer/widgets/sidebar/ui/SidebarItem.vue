@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SidebarItem } from './../model/sidebarItems';
+import type { SidebarItem } from '../model/sidebarItems';
 
 defineProps<{
   item: SidebarItem;

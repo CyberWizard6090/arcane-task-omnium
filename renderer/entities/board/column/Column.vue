@@ -26,6 +26,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
+
 import { ColumnModel, CardModel } from '@/entities/task/model/model';
 
 export default defineComponent({
@@ -61,13 +62,13 @@ export default defineComponent({
 
     // Drag state stored in window to cross columns
     function onDragStart(card: CardModel) {
-      (window as any)._dragCard = { card, fromColumnId: props.column.id };
+      (globalThis as any)._dragCard = { card, fromColumnId: props.column.id };
     }
     function onDragEnd() {
-      delete (window as any)._dragCard;
+      delete (globalThis as any)._dragCard;
     }
     function onDrop() {
-      const drag = (window as any)._dragCard;
+      const drag = (globalThis as any)._dragCard;
       if (!drag) return;
       // append to end
       emit('moveCard', {
@@ -77,11 +78,11 @@ export default defineComponent({
         toIndex: props.column.cards.length,
         card: drag.card,
       });
-      delete (window as any)._dragCard;
+      delete (globalThis as any)._dragCard;
     }
     function onCardDrop(idx: number) {
-      return (e: DragEvent) => {
-        const drag = (window as any)._dragCard;
+      return () => {
+        const drag = (globalThis as any)._dragCard;
         if (!drag) return;
         emit('moveCard', {
           fromColumnId: drag.fromColumnId,
@@ -90,7 +91,7 @@ export default defineComponent({
           toIndex: idx,
           card: drag.card,
         });
-        delete (window as any)._dragCard;
+        delete (globalThis as any)._dragCard;
       };
     }
 

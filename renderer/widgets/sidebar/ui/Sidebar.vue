@@ -16,8 +16,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { sidebarItems } from '../model/sidebarItems';
+
 import SidebarItem from './SidebarItem.vue';
+import { sidebarItems } from '../model/sidebarItems';
 
 const collapsed = ref(false);
 const toggleSidebar = () => {

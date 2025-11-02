@@ -10,7 +10,8 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
+
 import TodoItem from './TodoItem.vue';
 import { useTodoStore } from '../model/todoStore';
 

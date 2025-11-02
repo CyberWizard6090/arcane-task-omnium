@@ -12,7 +12,7 @@ interface Column {
 }
 
 // 🔹 Мок API для браузера
-const api = (window as any).api ?? {
+const api = (globalThis as any).api ?? {
   loadBoard: async () => ({
     columns: [
       { id: '1', title: 'Todo', tasks: [{ id: 't1', title: 'Task 1' }] },

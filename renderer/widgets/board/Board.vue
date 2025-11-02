@@ -14,8 +14,9 @@
 
 <script lang="ts">
 import { defineComponent, toRaw } from 'vue';
+
+import { BoardModel } from '@/entities/task/model/model';
 import Column from '@entities/board/column/Column.vue';
-import { BoardModel, ColumnModel } from '@/entities/task/model/model';
 
 export default defineComponent({
   props: {
@@ -39,7 +40,7 @@ export default defineComponent({
       emit('updateBoard', toRaw(props.board));
     }
 
-    function emitUpdate(newCol: ColumnModel) {
+    function emitUpdate() {
       emit('updateBoard', toRaw(props.board));
     }
 

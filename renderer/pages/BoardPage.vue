@@ -14,10 +14,13 @@
 
 <script lang="ts">
 import { defineComponent, reactive, onMounted } from 'vue';
-import Board from '@/widgets/board/Board.vue';
+
 import { BoardModel, ColumnModel } from '@/entities/task/model/model';
 import { Button } from '@/shared/ui/button';
+import Board from '@/widgets/board/Board.vue';
+
 import styles from './BoardPage.module.scss';
+
 export default defineComponent({
   components: { Board, Button },
   setup() {
@@ -28,7 +31,7 @@ export default defineComponent({
     });
 
     async function load() {
-      const data = await window.electronAPI.loadData();
+      const data = await globalThis.electronAPI.loadData();
       if (data && data.board) {
         Object.assign(board, data.board);
       } else {
@@ -60,7 +63,7 @@ export default defineComponent({
     }
 
     async function save() {
-      await window.electronAPI.saveData({ board });
+      await globalThis.electronAPI.saveData({ board });
       alert('Сохранено');
     }
 

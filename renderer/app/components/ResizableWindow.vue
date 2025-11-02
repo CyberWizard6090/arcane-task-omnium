@@ -16,7 +16,8 @@ export default defineComponent({
       const startX = e.clientX;
       const startY = e.clientY;
 
-      window.electronAPI.getWindowSize?.().then(({ width, height }) => {
+      // Берём реальные размеры окна
+      globalThis.electronAPI.getWindowSize?.().then(({ width, height }) => {
         const startWidth = width;
         const startHeight = height;
 
@@ -24,16 +25,16 @@ export default defineComponent({
           const newWidth = startWidth + (moveEvent.clientX - startX);
           const newHeight = startHeight + (moveEvent.clientY - startY);
 
-          window.electronAPI?.resizeWindow({ width: newWidth, height: newHeight });
+          globalThis.electronAPI?.resizeWindow({ width: newWidth, height: newHeight });
         };
 
         const onMouseUp = () => {
-          window.removeEventListener('mousemove', onMouseMove);
-          window.removeEventListener('mouseup', onMouseUp);
+          globalThis.removeEventListener('mousemove', onMouseMove);
+          globalThis.removeEventListener('mouseup', onMouseUp);
         };
 
-        window.addEventListener('mousemove', onMouseMove);
-        window.addEventListener('mouseup', onMouseUp);
+        globalThis.addEventListener('mousemove', onMouseMove);
+        globalThis.addEventListener('mouseup', onMouseUp);
       });
     },
   },

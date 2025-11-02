@@ -14,9 +14,9 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
-    const minimize = () => window.electronAPI.minimize();
-    const maximize = () => window.electronAPI.maximize();
-    const close = () => window.electronAPI.close();
+    const minimize = () => globalThis.electronAPI.minimize();
+    const maximize = () => globalThis.electronAPI.maximize();
+    const close = () => globalThis.electronAPI.close();
 
     return { minimize, maximize, close };
   },
@@ -31,7 +31,7 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   padding: 0 0 0 var(--spacing-m);
-  background-color: var(--background-primary);
+  /* background-color: var(--background-primary); */
 
   .window-controls {
     display: flex;

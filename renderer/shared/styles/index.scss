@@ -19,9 +19,11 @@ html,
 
   border-radius: 12px; // желаемый радиус
   overflow: hidden; // чтобы контент не вылезал за края
+
   transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 #app {
+  border: 0.5px solid #cccccc33;
   &::after {
     background-color: var(--background-primary);
     content: '';
