@@ -1,17 +1,24 @@
 <template>
-  <li class="sidebar-item" :class="{ collapsed }">
+  <li class="sidebar-item" :class="{ collapsed }" @click="navigate">
     <i :class="['mdi', item.icon, 'sidebar-item__icon']"></i>
     <span v-if="!collapsed" class="sidebar-item__label">{{ item.label }}</span>
   </li>
 </template>
 
 <script setup lang="ts">
-import type { SidebarItem } from '../model/sidebarItems';
+import type { SidebarItem as SidebarItemType } from '../model/sidebarItems';
+import { useRouter } from 'vue-router';
 
-defineProps<{
-  item: SidebarItem;
+const { item, collapsed } = defineProps<{
+  item: SidebarItemType;
   collapsed: boolean;
 }>();
+
+const router = useRouter();
+
+function navigate() {
+  router.push(item.route);
+}
 </script>
 
 <style lang="scss" scoped>

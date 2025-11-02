@@ -8,8 +8,7 @@
       </div>
 
       <div :class="styles.main">
-        <h1>ToDo List</h1>
-        <BoardPage />
+        <router-view />
       </div>
     </div>
   </ResizableWindow>
@@ -18,7 +17,6 @@
 <script setup lang="ts">
 import ResizableWindow from '@/app/components/ResizableWindow.vue';
 import TitleBar from '@/app/components/TitleBar.vue';
-import BoardPage from '@/pages/BoardPage.vue';
 import { Sidebar } from '@/widgets/sidebar';
 
 import styles from './App.module.scss';

@@ -6,7 +6,7 @@ export interface SidebarItem {
 }
 
 export const sidebarItems: SidebarItem[] = [
-  { id: 'dashboard', label: 'Главная', icon: 'mdi-home', route: '/' },
-  { id: 'projects', label: 'Проекты', icon: 'mdi-briefcase', route: '/projects' },
+  { id: '', label: 'Главная', icon: 'mdi-home', route: '/' },
+  { id: 'board', label: 'Доска', icon: 'mdi-briefcase', route: '/board' },
   { id: 'settings', label: 'Настройки', icon: 'mdi-cog', route: '/settings' },
 ];
