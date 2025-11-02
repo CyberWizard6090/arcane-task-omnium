@@ -1,0 +1,8 @@
+:root {
+  --font-base: 16px; /* базовый размер */
+  --font-small: calc(var(--font-base) * 0.875); /* 14px */
+  --font-medium: var(--font-base); /* 16px */
+  --font-large: calc(var(--font-base) * 1.25); /* 20px */
+  --font-xlarge: calc(var(--font-base) * 1.5); /* 24px */
+  --font-xxlarge: calc(var(--font-base) * 2); /* 32px */
+}

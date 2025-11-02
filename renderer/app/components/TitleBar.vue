@@ -31,8 +31,7 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   padding: 0 0 0 var(--spacing-m);
-  /* background-color: var(--background-primary); */
-
+  color: var(--font-color-primary);
   .window-controls {
     display: flex;
 
