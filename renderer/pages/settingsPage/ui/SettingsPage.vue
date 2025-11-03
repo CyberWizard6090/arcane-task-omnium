@@ -13,7 +13,6 @@
 <style scoped>
 .settings-page {
   padding: 2rem;
-  font-family: Arial, sans-serif;
 }
 
 .settings-page h1 {

@@ -13,7 +13,6 @@
 <style scoped>
 .home-page {
   padding: 2rem;
-  font-family: Arial, sans-serif;
 }
 
 .home-page h1 {

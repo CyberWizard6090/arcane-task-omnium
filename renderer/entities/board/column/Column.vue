@@ -2,7 +2,7 @@
   <div class="column" @dragover.prevent @drop="onDrop">
     <div class="column-header">
       <input v-model="local.title" @blur="saveTitle" />
-      <button @click="addCard">+ Card</button>
+      <Button variant="ghost" @click="addCard">+ Создать</Button>
     </div>
 
     <div class="cards">
@@ -26,10 +26,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
-
+import { Button } from '@/shared/ui/button';
 import { ColumnModel, CardModel } from '@/entities/task/model/model';
 
 export default defineComponent({
+  components: { Button },
   props: { column: { type: Object as () => ColumnModel, required: true } },
   emits: ['moveCard', 'updateColumn'],
   setup(props, { emit }) {

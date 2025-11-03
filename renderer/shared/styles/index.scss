@@ -3,6 +3,7 @@
 @use '@shared/styles/whitespace';
 @use '@shared/styles/base';
 @use '@shared/styles/_typography-variables';
+@use '@shared/styles/_fonts';
 * {
   box-sizing: border-box;
 }
@@ -11,14 +12,9 @@ html,
 #app {
   height: 100%;
   margin: 0;
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system;
 
-  border-radius: 12px; // желаемый радиус
-  overflow: hidden; // чтобы контент не вылезал за края
+  border-radius: 12px;
+  overflow: hidden;
 
   transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
@@ -33,10 +29,13 @@ html,
     width: 100%;
     height: 100%;
     pointer-events: none;
-    // filter: blur(50px);
+
     border-radius: 12px; // тот же радиус, что и у #app
     z-index: -1;
   }
+}
+body {
+  font-family: 'Yandex Sans Text', sans-serif;
 }
 
 .page {
